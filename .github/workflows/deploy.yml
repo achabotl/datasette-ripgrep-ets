@@ -38,8 +38,6 @@ jobs:
         export_default_credentials: true
     - name: Deploy demo using Google Cloud Run
       run: |-
-        gcloud config set run/region us-central1
-        gcloud config set project datasette-ripgrep-ets
         datasette publish cloudrun --metadata metadata.yml \
           --static all:all \
           --install=https://github.com/simonw/datasette-ripgrep/archive/main.zip \
