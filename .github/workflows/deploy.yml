@@ -33,7 +33,9 @@ jobs:
     - name: Set up Cloud Run
       uses: google-github-actions/setup-gcloud@v0.2.0
       with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
+        export_default_credentials: true
     - name: Deploy demo using Google Cloud Run
       run: |-
         gcloud config set run/region us-central1
