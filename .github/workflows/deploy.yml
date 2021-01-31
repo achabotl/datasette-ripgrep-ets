@@ -36,7 +36,9 @@ jobs:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         export_default_credentials: true
-    - name: Deploy demo using Google Cloud Run
+    - name: Configure Docker
+      run: gcloud auth configure-docker --quiet  
+    - name: Deploy using Google Cloud Run
       run: |-
         gcloud config set project datasette-ripgrep-ets
         datasette publish cloudrun --metadata metadata.yml \
