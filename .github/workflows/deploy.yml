@@ -40,7 +40,6 @@ jobs:
       run: gcloud auth configure-docker --quiet  
     - name: Deploy using Google Cloud Run
       run: |-
-        gcloud config set project datasette-ripgrep-ets
         datasette publish cloudrun --metadata metadata.yml \
           --static all:all \
           --install=https://github.com/simonw/datasette-ripgrep/archive/main.zip \
