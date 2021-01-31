@@ -10,6 +10,3 @@ do
 	fi
 	git clone --depth 1 "https://github.com/enthought/$PACKAGE.git" "all/$PACKAGE"
 done
-
-# Remove all/**/.git to reduce upload size and speed up ripgrep
-find all -name ".git" -exec rm -fr "{}" \;
