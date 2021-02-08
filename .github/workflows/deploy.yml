@@ -40,7 +40,6 @@ jobs:
       run: gcloud auth configure-docker --quiet  
     - name: Deploy using Google Cloud Run
       run: |-
-        gcloud auth login
         gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
         datasette publish cloudrun --metadata metadata.yml \
           --static all:all \
