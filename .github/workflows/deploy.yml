@@ -30,7 +30,11 @@ jobs:
     - name: Git clone ETS repos
       run: |-
         ./download_source.sh
-    - name: Set up Cloud Run
+    - name: Test secrests
+      run: echo "$VALUE"
+      env:
+        VALUE: ${{ secrets.TEST_SECRET }}
+    - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@master
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
