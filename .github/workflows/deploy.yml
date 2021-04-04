@@ -30,16 +30,15 @@ jobs:
     - name: Git clone ETS repos
       run: |-
         ./download_source.sh
-    - name: Set up Cloud Run
-      uses: google-github-actions/setup-gcloud@v0.2.0
+   - name: Set up Cloud Run
+      uses: google-github-actions/setup-gcloud@master
       with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        version: '275.0.0'
+        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
-        export_default_credentials: true
-    - name: Configure Docker
-      run: gcloud auth configure-docker --quiet  
     - name: Deploy using Google Cloud Run
       run: |-
+        gcloud config set run/region us-central1
         gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
         datasette publish cloudrun --metadata metadata.yml \
           --static all:all \
