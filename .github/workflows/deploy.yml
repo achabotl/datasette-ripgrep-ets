@@ -39,7 +39,7 @@ jobs:
     - name: Deploy using Google Cloud Run
       run: |-
         gcloud config set run/region us-central1
-        gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+        gcloud config set project datasette-ripgrep-ets
         datasette publish cloudrun --metadata metadata.yml \
           --static all:all \
           --install=https://github.com/simonw/datasette-ripgrep/archive/main.zip \
