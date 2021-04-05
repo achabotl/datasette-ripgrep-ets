@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eux
 
-PACKAGES="chaco enable envisage mayavi pyface traits traits-futures traitsui qt_binder traits-futures apptools codetools scimath graphcanvas"
+PACKAGES="chaco enable envisage mayavi pyface traits traits-futures traitsui qt_binder apptools codetools scimath graphcanvas"
 
 for PACKAGE in $PACKAGES
 do
