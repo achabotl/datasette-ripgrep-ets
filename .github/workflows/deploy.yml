@@ -30,6 +30,9 @@ jobs:
     - name: Git clone ETS repos
       run: |-
         ./download_source.sh
+    - name: Update Metadata.yml
+      run: |-
+        python create_metadata.py
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@master
       with:
